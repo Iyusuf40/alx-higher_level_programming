@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "compile('$PYFILE', '$PYFILE', 'exec')" | python3 > "${PYFILE}c"
