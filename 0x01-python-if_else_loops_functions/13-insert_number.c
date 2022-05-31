@@ -39,6 +39,8 @@ listint_t *insert_node(listint_t **head, int number)
 	}
 	if ((*head != save) && !save)
 		prev->next = node;
+	else
+		*head = node;
 
 	node->next = NULL;
 
