@@ -6,7 +6,7 @@ if __name__ == "__main__":
     for _ in list_:
         i += 1
     if i == 1:
-        print("0 arguments.")
+        print("{} arguments.".format(i - 1))
     else:
         index = 1
         print("{i} arguments:".format(i=i - 1))
