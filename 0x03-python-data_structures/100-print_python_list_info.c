@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "object.h"
 #include "listobject.h"
+
 /**
  * print_python_list_info - prints info abt a list
  * @p: list to inspect
@@ -16,7 +17,7 @@ void print_python_list_info(PyObject *p)
 	size = int(PyList_Size(p))
 	while (i < size)
 	{
-		printf("Element %d: %s\n", i, char *(Py_TYPE(p[i])));
+		printf("Element %d: %s\n", i, (char *)(Py_TYPE(p[i])));
 		i++;
 	}
 }
