@@ -1,5 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <python3.4/python.h>
 #include <python3.4/object.h>
 #include <python3.4/listobject.h>
 
