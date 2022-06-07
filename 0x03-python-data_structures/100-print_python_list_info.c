@@ -12,12 +12,12 @@
  */
 void print_python_list_info(PyObject *p)
 {
-	Py_ssize_t size, i = 0;
+	unsigned int size, i = 0;
 
 	printf("[*] Size of the Python List = %u\n", (unsigned int)PyList_Size(p));
 	printf("[*] Allocated = %u\n", (unsigned int)Py_SIZE(p));
 
-	size = PyList_Size(p)
+	size = (unsigned int)PyList_Size(p)
 	while (i < size)
 	{
 		printf("Element %u: %s\n", (unsigned int)i, (char *)Py_TYPE(p[i]));
