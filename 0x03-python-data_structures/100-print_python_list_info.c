@@ -4,6 +4,7 @@
 #include <python3.4/python.h>
 #include <python3.4/object.h>
 #include <python3.4/listobject.h>
+#define PY_SSIZE_T_CLEAN
 
 /**
  * print_python_list_info - prints info abt a list
