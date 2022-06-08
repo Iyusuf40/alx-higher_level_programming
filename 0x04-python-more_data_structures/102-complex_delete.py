@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def complex_delete(a_dictionary, value):
     list_ = []
-    if !a_dictionary:
+    if not a_dictionary or not value:
         return
     for x, y in a_dictionary.items():
         if value == y:
