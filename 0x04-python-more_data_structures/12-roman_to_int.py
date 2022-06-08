@@ -11,7 +11,8 @@ def roman_to_int(roman_string):
             "D": 500,
             "M": 1000
             }
-    if not roman_string or type(roman_string) != str:
+    if not roman_string or type(roman_string) != str or \
+            len(roman_string) == 0:
         return 0
     res = 0
     roman_string = roman_string.upper()
@@ -60,5 +61,5 @@ if __name__ == "__main__":
     roman_number = None
     print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 
-    roman_number = "cv"
+    roman_number = ""
     print("{} = {}".format(roman_number, roman_to_int(roman_number)))
