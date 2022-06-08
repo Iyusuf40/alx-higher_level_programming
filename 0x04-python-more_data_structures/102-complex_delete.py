@@ -3,6 +3,8 @@ def complex_delete(a_dictionary, value):
     list_ = []
     if not a_dictionary:
         return
+    if not value:
+        return a_dictionary
     for x, y in a_dictionary.items():
         if value == y:
             list_.append(y)
