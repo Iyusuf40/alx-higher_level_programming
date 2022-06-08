@@ -14,6 +14,7 @@ def roman_to_int(roman_string):
     if not roman_string or type(roman_string) != str:
         return 0
     res = 0
+    roman_string = roman_string.upper()
     list_ = []
     for elem in roman_string:
         list_.append(elem)
@@ -54,4 +55,10 @@ if __name__ == "__main__":
     print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 
     roman_number = "DCCVII"
+    print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+
+    roman_number = None
+    print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+
+    roman_number = "cv"
     print("{} = {}".format(roman_number, roman_to_int(roman_number)))
