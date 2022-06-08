@@ -7,7 +7,7 @@ def complex_delete(a_dictionary, value):
         return a_dictionary
     for x, y in a_dictionary.items():
         if value == y:
-            list_.append(y)
+            list_.append(x)
     if len(list_) == 0:
         return a_dictionary
     for item in list_:
