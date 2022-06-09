@@ -34,6 +34,24 @@ def roman_to_int(roman_string):
                 res += 9
             else:
                 res += num_dict[elem]
+        elif elem == "C":
+            if prev == "X":
+                res -= num_dict[prev]
+                res += 90
+            else:
+                res += num_dict[elem]
+        elif elem == "D":
+            if prev == "C":
+                res -= num_dict[prev]
+                res += 400
+            else:
+                res += num_dict[elem]
+        elif elem == "M":
+            if prev == "C":
+                res -= num_dict[prev]
+                res += 900
+            else:
+                res += num_dict[elem]
         else:
             res += num_dict[elem]
         prev = elem
@@ -58,8 +76,8 @@ if __name__ == "__main__":
     roman_number = "DCCVII"
     print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 
-    roman_number = None
+    roman_number = "CM"
     print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 
-    roman_number = ""
+    roman_number = "XCIX"
     print("{} = {}".format(roman_number, roman_to_int(roman_number)))
