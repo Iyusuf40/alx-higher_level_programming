@@ -5,6 +5,8 @@ def safe_print_integer(value):
         return True
     except ValueError:
         return False
+    except TypeError:
+        return False
 
 
 if __name__ == "__main__":
