@@ -29,6 +29,8 @@ class Square:
             print()
         else:
             col = 0
+            for height in range(self.position[1]):
+                print()
             for row in range(self.size):
                 if col:
                     print()
@@ -63,7 +65,7 @@ if __name__ == "__main__":
 
     print("--")
 
-    my_square_2 = Square(3, (1, 4, 4))
+    my_square_2 = Square(3, (0, 6))
     my_square_2.my_print()
 
     print("--")
