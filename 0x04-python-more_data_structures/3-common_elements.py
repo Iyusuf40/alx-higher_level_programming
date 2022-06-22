@@ -8,3 +8,6 @@ if __name__ == "__main__":
     set_2 = {"Bash", "C", "Ruby", "Perl"}
     c_set = common_elements(set_1, set_2)
     print(sorted(list(c_set)))
+    set_1 = {"Python", "C", "Javascript"}
+    print(set_1)
+    print(list(set_1))
