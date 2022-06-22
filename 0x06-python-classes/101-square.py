@@ -58,7 +58,7 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = size
 
-    def __str__(self):
+    def __repr__(self):
         """prints it self"""
         res = ""
         col = 0
@@ -77,18 +77,26 @@ class Square:
 
 
 if __name__ == "__main__":
-    my_square_1 = Square(3)
-    my_square_1.my_print()
+#    my_square_1 = Square(3)
+#    my_square_1.my_print()
+#
+#    print("--")
+#
+#    my_square_2 = Square(3, (0, 6))
+#    my_square_2.my_print()
+#
+#    print("--")
+#
+#    my_square_3 = Square(3, (3, 0))
+#    my_square_3.my_print()
+#
+#    print("--")
+#    print(my_square_3)
+#
+    my_square = Square(5, (0, 0))
+    print(my_square)
 
     print("--")
 
-    my_square_2 = Square(3, (0, 6))
-    my_square_2.my_print()
-
-    print("--")
-
-    my_square_3 = Square(3, (3, 0))
-    my_square_3.my_print()
-
-    print("--")
-    print(my_square_3)
+    my_square = Square(5, (4, 1))
+    print(my_square)
