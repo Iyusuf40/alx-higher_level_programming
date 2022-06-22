@@ -62,6 +62,8 @@ class Square:
         """prints it self"""
         res = ""
         col = 0
+        if not self.size:
+            return ""
         for height in range(self.position[1]):
             res += "\n"
         for row in range(self.size):
@@ -71,32 +73,20 @@ class Square:
                 res += " "
             for col in range(self.__size):
                 res += "#"
-        #res += "\n"
 
         return res
 
 
 if __name__ == "__main__":
-#    my_square_1 = Square(3)
-#    my_square_1.my_print()
-#
-#    print("--")
-#
-#    my_square_2 = Square(3, (0, 6))
-#    my_square_2.my_print()
-#
-#    print("--")
-#
-#    my_square_3 = Square(3, (3, 0))
-#    my_square_3.my_print()
-#
-#    print("--")
-#    print(my_square_3)
-#
     my_square = Square(5, (0, 0))
     print(my_square)
 
     print("--")
 
     my_square = Square(5, (4, 1))
+    print(my_square)
+
+    print("--")
+
+    my_square = Square(0, (10, 10))
     print(my_square)
