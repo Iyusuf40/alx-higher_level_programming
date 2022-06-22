@@ -47,6 +47,7 @@ class SinglyLinkedList:
             self.head = Node(value)
         else:
             start = self.head
+            save = start
             prev = start
             i = 0
             while start:
@@ -56,7 +57,8 @@ class SinglyLinkedList:
                         start.next_node = new
                     else:
                         new.next_node = start
-                        prev.next_node = new
+                        if i == 1:
+                            prev.next_node = new
                     break
                 if value < start.data:
                     new = Node(value)
@@ -86,15 +88,13 @@ class SinglyLinkedList:
 
 if __name__ == "__main__":
     sll = SinglyLinkedList()
-    sll.sorted_insert(2)
-    sll.sorted_insert(5)
-    sll.sorted_insert(3)
     sll.sorted_insert(10)
-    sll.sorted_insert(1)
-    sll.sorted_insert(-4)
+    sll.sorted_insert(2)
     sll.sorted_insert(-3)
+    sll.sorted_insert(34)
     sll.sorted_insert(4)
-    sll.sorted_insert(5)
-    sll.sorted_insert(12)
-    sll.sorted_insert(3)
+    sll.sorted_insert(-5)
+    sll.sorted_insert(0)
+    sll.sorted_insert(8)
+    sll.sorted_insert(7)
     print(sll)
