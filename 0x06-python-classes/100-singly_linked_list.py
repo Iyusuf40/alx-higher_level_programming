@@ -57,8 +57,10 @@ class SinglyLinkedList:
                         start.next_node = new
                     else:
                         new.next_node = start
-                        if i == 1:
+                        if i != 0:
                             prev.next_node = new
+                        else:
+                            self.head = new
                     break
                 if value < start.data:
                     new = Node(value)
