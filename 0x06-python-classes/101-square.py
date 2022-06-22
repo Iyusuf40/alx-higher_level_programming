@@ -58,7 +58,7 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = size
 
-    def __repr__(self):
+    def __str__(self):
         """prints it self"""
         res = ""
         col = 0
@@ -71,7 +71,7 @@ class Square:
                 res += " "
             for col in range(self.__size):
                 res += "#"
-        res += "\n"
+        #res += "\n"
 
         return res
 
