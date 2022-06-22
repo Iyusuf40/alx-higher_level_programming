@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
     print("--")
 
-    my_square_2 = Square(3, (1,4,4))
+    my_square_2 = Square(3, (1, 4, 4))
     my_square_2.my_print()
 
     print("--")
