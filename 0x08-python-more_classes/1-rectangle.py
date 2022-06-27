@@ -1,6 +1,13 @@
 #!/usr/bin/python3
 """
 a rectangle class
+```example```
+>>> rec = Rectangle(2, 5)
+>>> rec.width
+2
+>>> rec.height
+5
+
 """
 
 
@@ -32,10 +39,10 @@ class Rectangle:
         return self.__height
 
     @height.setter
-    def height(self, value):
+    def height(self, height):
         """height setter"""
         if not isinstance(height, int):
             raise TypeError("height must be an integer")
         if height < 0:
             raise ValueError("height must be >= 0")
-        self.___height = height
+        self.__height = height
