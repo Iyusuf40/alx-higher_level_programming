@@ -1,0 +1,37 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+test error text is not string type
+
+>>> try:
+... 	text_indentation([])
+... except TypeError as e:
+...	print(e)
+...
+text must be a string
+
+
+
+correct case
+
+>>> text_indentation("first line. second line? third line:")
+first line.
+<BLANKLINE>
+second line?
+<BLANKLINE>
+third line:
+<BLANKLINE>
+
+
+
+correct case no :, . nor ?
+
+>>> text_indentation("first line")
+first line
+
+
+
+correct case char immediately after . or : or ?
+>>> text_indentation("first line.second line")
+first line.
+<BLANKLINE>
+second line

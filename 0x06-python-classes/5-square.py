@@ -37,3 +37,20 @@ class Square:
         if size < 0:
             raise ValueError("size must be >= 0")
         self.__size = size
+
+
+if __name__ == "__main__":
+    my_square = Square(3)
+    my_square.my_print()
+
+    print("--")
+
+    my_square.size = 10
+    my_square.my_print()
+
+    print("--")
+
+    my_square.size = 0
+    my_square.my_print()
+
+    print("--")

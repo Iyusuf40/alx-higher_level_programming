@@ -1,0 +1,38 @@
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+test correct case
+
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+
+test error wrong firstname type
+
+>>> try:
+... 	say_my_name(5, "Smith")
+... except TypeError as e:
+... 	print(e)
+...
+first_name must be a string
+
+
+
+test error wrong lastname type
+
+>>> try:
+...     say_my_name("john", None)
+... except TypeError as e:
+...     print(e)
+...
+last_name must be a string
+
+
+
+test error missing firstname type
+
+>>> try:
+...     say_my_name(None,last_name="Smith")
+... except TypeError as e:
+...     print(e)
+...
+first_name must be a string

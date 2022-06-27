@@ -1,0 +1,48 @@
+>>> print_square = __import__("4-print_square").print_square
+
+
+test correct output
+
+>>> print_square(2)
+##
+##
+
+
+test error invalid size type
+
+>>> try:
+... 	print_square("4")
+... except TypeError as e:
+... 	print(e)
+...
+size must be an integer
+
+
+
+test error invalid size value
+
+>>> try:
+...     print_square(-3)
+... except ValueError as e:
+...     print(e)
+...
+size must be >= 0
+
+
+
+try size as float type
+
+>>> print_square(2.000)
+##
+##
+
+
+
+try size is float and less than 0
+
+>>> try:
+...     print_square(-2.00)
+... except TypeError as e:
+...     print(e)
+...
+size must be an integer
