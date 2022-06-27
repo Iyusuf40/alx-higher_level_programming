@@ -4,28 +4,22 @@ a rectangle class
 ```example```
 >>> Rectangle.number_of_instances
 0
->>> rec = Rectangle(2, 5)
+>>> rec = Rectangle(2, 2)
 >>> rec.width
 2
 >>> rec.height
-5
+2
 >>> rec.area()
-10
+4
 >>> rec.perimeter()
-14
+8
 >>> print(rec)
 ##
 ##
-##
-##
-##
->>> Rectangle.print_symbol = 2
+>>> rec.print_symbol = ["C", "is", "fun!"]
 >>> print(rec)
-22
-22
-22
-22
-22
+['C', 'is', 'fun!']['C', 'is', 'fun!']
+['C', 'is', 'fun!']['C', 'is', 'fun!']
 >>> Rectangle.number_of_instances
 1
 >>> sec_rec = Rectangle(0, 5)
@@ -49,6 +43,7 @@ class Rectangle:
         """initializes each instance"""
         self.width = width
         self.height = height
+        self.print_symbol = None
         type(self).number_of_instances += 1
 
     @property
@@ -93,8 +88,12 @@ class Rectangle:
         """string rep"""
         if self.width == 0 or self.height == 0:
             return ""
-        symbol = str(type(self).print_symbol)
-        cols = self.width * symbol
+
+        if self.print_symbol is None:
+            self.print_symbol = str(type(self).print_symbol)
+        else:
+            self.print_symbol = str(self.print_symbol)
+        cols = self.width * self.print_symbol
         _str = ""
         for _ in range(self.height):
             _str += cols
