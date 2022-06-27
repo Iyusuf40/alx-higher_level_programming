@@ -19,13 +19,13 @@ a rectangle class
 ##
 ##
 ##
->>> Rectangle.print_symbol = "x"
+>>> Rectangle.print_symbol = 2
 >>> print(rec)
-xx
-xx
-xx
-xx
-xx
+22
+22
+22
+22
+22
 >>> Rectangle.number_of_instances
 1
 >>> sec_rec = Rectangle(0, 5)
@@ -93,7 +93,8 @@ class Rectangle:
         """string rep"""
         if self.width == 0 or self.height == 0:
             return ""
-        cols = self.width * type(self).print_symbol
+        symbol = str(type(self).print_symbol)
+        cols = self.width * symbol
         _str = ""
         for _ in range(self.height):
             _str += cols
