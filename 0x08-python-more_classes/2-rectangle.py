@@ -10,7 +10,7 @@ a rectangle class
 >>> rec.area()
 10
 >>> rec.perimeter()
-7
+14
 
 """
 
@@ -57,4 +57,4 @@ class Rectangle:
 
     def perimeter(self):
         """perimeter = width + height"""
-        return self.width + self.height
+        return (self.width + self.height) * 2
