@@ -11,6 +11,15 @@ a rectangle class
 10
 >>> rec.perimeter()
 14
+>>> rec = Rectangle()
+>>> rec.width
+0
+>>> rec.height
+0
+>>> rec.area()
+0
+>>> rec.perimeter()
+0
 
 """
 
@@ -57,4 +66,6 @@ class Rectangle:
 
     def perimeter(self):
         """perimeter = width + height"""
+        if self.width == 0 or self.height == 0:
+            return 0
         return (self.width + self.height) * 2
