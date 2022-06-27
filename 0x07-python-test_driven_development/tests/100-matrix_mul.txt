@@ -1,0 +1,165 @@
+TEST FILE
+
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+
+test correct case int
+
+>>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+[[7, 10], [15, 22]]
+>>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+[[13, 16]]
+
+
+
+test correct case float
+
+>>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+[[7, 10], [15, 22]]
+>>> print(matrix_mul([[1.0, 2.0]], [[3, 4], [5, 6]]))
+[[13.0, 16.0]]
+
+
+
+
+test m_a wrong type
+
+>>> try:
+... 	m_a = "string"
+... 	m_b = [[1, 2], [3, 4]]
+... 	print(matrix_mul(m_a, m_b))
+... except TypeError as e:
+... 	print(e)
+...
+m_a must be a list
+
+
+
+test m_b wrong type
+
+>>> try:
+...     m_b = "string"
+...     m_a = [[1, 2], [3, 4]]
+...     print(matrix_mul(m_a, m_b))
+... except TypeError as e:
+...     print(e)
+...
+m_b must be a list
+
+
+
+test m_a not a list of lists
+
+>>> try:
+...     m_a = [3, 4]
+...     m_b = [[1, 2], [3, 4]]
+...     print(matrix_mul(m_a, m_b))
+... except TypeError as e:
+...     print(e)
+...
+m_a must be a list of lists
+
+
+
+test m_b not a list of lists
+
+>>> try:
+...     m_b = [3, 4]
+...     m_a = [[1, 2], [3, 4]]
+...     print(matrix_mul(m_a, m_b))
+... except TypeError as e:
+...     print(e)
+...
+m_b must be a list of lists
+
+
+
+test m_a an empty list
+
+>>> try:
+...     m_a = []
+...     m_b = [[1, 2], [3, 4]]
+...     print(matrix_mul(m_a, m_b))
+... except ValueError as e:
+...     print(e)
+...
+m_a can't be empty
+
+
+
+test m_b an empty list
+
+>>> try:
+...     m_b = [[5, 6],[]]
+...     m_a = [[1, 2], [3, 4]]
+...     print(matrix_mul(m_a, m_b))
+... except ValueError as e:
+...     print(e)
+...
+m_b can't be empty
+
+
+
+test m_a has wrong type as element
+
+>>> try:
+...     m_a = [[1, 2], [3, "a"]]
+...     m_b = [[1, 2], [3, 4]]
+...     print(matrix_mul(m_a, m_b))
+... except TypeError as e:
+...     print(e)
+...
+m_a should contain only integers or floats
+
+
+
+test m_b has wrong type as element
+
+>>> try:
+...     m_b = [["hello", 2], [3, "a"]]
+...     m_a = [[1, 2], [3, 4]]
+...     print(matrix_mul(m_a, m_b))
+... except TypeError as e:
+...     print(e)
+...
+m_b should contain only integers or floats
+
+
+
+test m_a not having elements of equal length
+
+>>> try:
+...     m_a = [[1, 2], [3, 5, 7]]
+...     m_b = [[1, 2], [3, 4]]
+...     print(matrix_mul(m_a, m_b))
+... except TypeError as e:
+...     print(e)
+...
+each row of m_a must be of the same size
+
+
+
+test m_b not having elements of equal length
+
+>>> try:
+...     m_b = [[1, 2], [3, 5], [4, 7, 8, 9]]
+...     m_a = [[1, 2], [3, 4]]
+...     print(matrix_mul(m_a, m_b))
+... except TypeError as e:
+...     print(e)
+...
+each row of m_b must be of the same size
+
+
+
+test m_b and m_a can't be multiplied
+
+>>> try:
+...     m_b = [[1, 2, 4], [3, 5, 4], [4, 7, 3]]
+...     m_a = [[1, 2], [3, 4]]
+...     print(matrix_mul(m_a, m_b))
+... except ValueError as e:
+...     print(e)
+...
+m_a and m_b can't be multiplied
+
