@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""advanced lesson module"""
+"""advanced lesson module
+   prevents unwanted attr
+"""
 
 
 class LockedClass:
@@ -16,6 +18,8 @@ has no attribute '{}'".format(name))
 
 
 if __name__ == "__main__":
+    """test
+    """
     lc = LockedClass()
     lc.first_name = "John"
     try:
