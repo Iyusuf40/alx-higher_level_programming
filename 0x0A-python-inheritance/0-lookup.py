@@ -6,18 +6,21 @@ prints attrributes of an object
 
 def lookup(obj):
     """prints attrributes of an object"""
-    res = [item for item in obj.__dict__]
+    res = [item for item in dir(obj)]
     return res
 
 
 if __name__ == "__main__":
-    """doc"""
+    """doc
+    """
     class MyClass1(object):
-        """simple class"""
+        """simple class
+        """
         pass
 
     class MyClass2(object):
-        """doc"""
+        """doc
+        """
         my_attr1 = 3
 
         def my_meth(self):
