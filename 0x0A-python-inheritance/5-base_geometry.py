@@ -4,5 +4,4 @@
 
 class BaseGeometry:
     """an empty class"""
-    def __init__(self):
-        pass
+    pass
