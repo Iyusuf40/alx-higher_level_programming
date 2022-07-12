@@ -76,10 +76,13 @@ class Base:
             file_name = "Square.json"
 
         obj_list = []
-        with open(file_name, "r", encoding="utf-8") as f:
-            lst = json.loads(f.read())
-            obj_list += [cls.create(**objct) for objct in lst]
-        return obj_list
+        try:
+            with open(file_name, "r", encoding="utf-8") as f:
+                lst = cls.from_json_string(f.read())
+                obj_list += [cls.create(**objct) for objct in lst]
+                return obj_list
+        except Exception:
+            return []
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
