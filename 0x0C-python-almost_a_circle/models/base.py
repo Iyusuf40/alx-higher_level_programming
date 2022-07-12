@@ -69,7 +69,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """returns a list of instances"""
+        """returns a python list of instances"""
         if "Rectangle" in f"{cls.__dict__['__init__']}":
             file_name = "Rectangle.json"
         elif "Square" in f"{cls.__dict__['__init__']}":
