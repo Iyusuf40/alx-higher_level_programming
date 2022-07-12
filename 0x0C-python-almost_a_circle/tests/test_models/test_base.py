@@ -3,8 +3,8 @@
 
 
 import unittest
-from base import Base
-from rectangle import Rectangle
+from models.base import Base
+from models.rectangle import Rectangle
 
 
 class Test_Base(unittest.TestCase):
