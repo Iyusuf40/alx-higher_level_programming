@@ -75,13 +75,11 @@ class Base:
         elif "Square" in f"{cls.__dict__['__init__']}":
             file_name = "Square.json"
 
-        try:
-            with open(file_name, "r", encoding="utf-8") as f:
-                lst = json.loads(f.read())
-                obj_list = [cls.create(**objct) for objct in lst]
-                return obj_list
-        except Exception as e:
-            return []
+        obj_list = []
+        with open(file_name, "r", encoding="utf-8") as f:
+            lst = json.loads(f.read())
+            obj_list += [cls.create(**objct) for objct in lst]
+        return obj_list
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
