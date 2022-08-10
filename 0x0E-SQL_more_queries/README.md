@@ -1,0 +1,1 @@
+# Second lesson on SQL
