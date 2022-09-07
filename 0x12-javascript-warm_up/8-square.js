@@ -1,15 +1,13 @@
 #!/usr/bin/node
 const x = parseInt(process.argv[2]);
+let str = '';
 if (x) {
   for (let y = 0; y < x; y++) {
-    if (y) {
-      process.stdout.write('\n');
-    }
-    for (let z = 0; z < x; z++) {
-      process.stdout.write('x');
-    }
+    str += 'x';
   }
-  process.stdout.write('\n');
+  for (let y = 0; y < x; y++) {
+    console.log(str);
+  }
 } else {
   console.log('Missing size');
 }
