@@ -19,5 +19,4 @@ if (list.length < 4) {
     }
   }
   console.log(small);
-  console.log(big);
 }
