@@ -7,12 +7,12 @@ import MySQLdb
 import sys
 
 
-username = sys.argv[1]
-password = sys.argv[2]
-db = sys.argv[3]
-
-
 def main():
+    """ main function """
+    username = sys.argv[1]
+    password = sys.argv[2]
+    db = sys.argv[3]
+
     conn = MySQLdb.connect(host="localhost", port=3306,
                            user=username, passwd=password,
                            db=db, charset="utf8")
