@@ -17,7 +17,9 @@ def main():
     #                       user=usr, passwd=pwd,
     #                       db=db, charset="utf8")
     cur = conn.cursor()
-    query = "select * from cities order by cities.id"
+    query = "select cities.id, cities.name, states.name from\
+            cities join states on cities.state_id = states.id\
+            order by cities.id"
     cur.execute(query)
     res = cur.fetchall()
     for i in res:
