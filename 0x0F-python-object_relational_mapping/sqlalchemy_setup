@@ -1,15 +1,20 @@
-#!/usr/bin/python3
-""" module contains sqlalchemy mapped table.
-deletes some states row in states table"""
-
-
-from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 import sys
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
 
 
-def main():
+Base = declarative_base()
+
+
+class State(Base):
+    """ maps to states table"""
+    __tablename__ = 'states'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(128))
+
+def setup():
     """main function"""
     user = sys.argv[1]
     pwd = sys.argv[2]
@@ -19,12 +24,4 @@ def main():
     Session = sessionmaker(bind=engine)
     Base.metadata.create_all(engine)  # redundant after first call
     session = Session()
-    states = session.query(State).filter(State.name.like('%a%'))\
-        .all()
-    for state in states:
-        session.delete(state)
-    session.commit()
-
-
-if __name__ == "__main__":
-    main()
+    states = session.query(State).filter(State.name.like('%a%')).all()
