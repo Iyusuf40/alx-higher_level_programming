@@ -30,3 +30,5 @@ if __name__ == "__main__":
     obj = main()
     if (obj):
         print(str(obj.id) + ":", obj.name)
+    else:
+        print()
