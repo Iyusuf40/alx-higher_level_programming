@@ -17,8 +17,8 @@ def main():
                            user=username, passwd=password,
                            db=db, charset="utf8")
     cur = conn.cursor()
-    query = "select * from states where lower(states.name) like 'n%'\
-             order by states.id"
+    query = "select * from states where states.name like 'n%'\
+             or states.name like 'N%' order by states.id"
     cur.execute(query)
     res = cur.fetchall()
     for item in res:
