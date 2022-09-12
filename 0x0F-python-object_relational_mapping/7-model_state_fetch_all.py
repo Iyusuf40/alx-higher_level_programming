@@ -9,20 +9,24 @@ from sqlalchemy.orm import sessionmaker
 import sys
 
 
-usr = sys.argv[1]
-pwd = sys.argv[2]
-db = sys.argv[3]
+def main():
+    """program entry"""
+    usr = sys.argv[1]
+    pwd = sys.argv[2]
+    db = sys.argv[3]
 
-db_url = f"mysql+mysqldb://{usr}:{pwd}@localhost/{db}"
+    db_url = f"mysql+mysqldb://{usr}:{pwd}@localhost/{db}"
 
-engine = create_engine(db_url)
-Session = sessionmaker(bind=engine)
-Base.metadata.create_all(engine)
-session = Session()
+    engine = create_engine(db_url)
+    Session = sessionmaker(bind=engine)
+    Base.metadata.create_all(engine)
+    session = Session()
 
-objs = session.query(State).order_by(State.id)
+    objs = session.query(State).order_by(State.id)
+    return objs
 
 
 if __name__ == "__main__":
+    objs = main()
     for item in objs:
         print(str(item.id) + ':',  item.name)
