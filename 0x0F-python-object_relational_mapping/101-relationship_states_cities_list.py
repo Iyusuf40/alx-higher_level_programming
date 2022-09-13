@@ -22,10 +22,10 @@ def main():
     states = session.query(State).order_by(State.id).all()
     for state in states:
         print(f"{state.id}: {state.name}")
-        city_list = state.cities
-        for city in city_list:
+        # city_list = state.cities
+        for city in state.cities:
             print(f"\t{city.id}: {city.name}")
-    session.commit()
+    session.close()
 
 
 if __name__ == "__main__":
