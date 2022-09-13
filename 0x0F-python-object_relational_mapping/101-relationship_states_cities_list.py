@@ -1,30 +1,31 @@
 #!/usr/bin/python3
-"""practice module"""
+"""
+A script that lists all State objects,
+and corresponding City objects
+"""
 
-
-from relationship_state import State, Base
-from relationship_city import City
+from sys import argv
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-import sys
+from sqlalchemy.orm import Session
+from relationship_state import State
+from relationship_city import City
 
 
 def main():
-    """main function"""
-    ls = sys.argv[1:]
-    user = ls[0]
-    pwd = ls[1]
-    db = ls[2]
-    db_url = f"mysql+mysqldb://{user}:{pwd}@localhost/{db}"
-    engine = create_engine(db_url)
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    states = session.query(State).order_by(State.id).all()
+    """Main function"""
+    user = argv[1]
+    passwd = argv[2]
+    db = argv[3]
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(user, passwd, db), pool_pre_ping=True)
+
+    session = Session(engine)
+    states = session.query(State).outerjoin(City).order_by(State.id, City.id)
     for state in states:
-        print(f"{state.id}: {state.name}")
-        # city_list = state.cities
+        print("{}: {}".format(state.id, state.name))
         for city in state.cities:
-            print(f"\t{city.id}: {city.name}")
+            print("\t{}: {}".format(city.id, city.name))
+
     session.close()
 
 
