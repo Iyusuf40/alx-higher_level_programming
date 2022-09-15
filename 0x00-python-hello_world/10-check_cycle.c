@@ -6,20 +6,18 @@
  */
 int check_cycle(listint_t *list)
 {
-	int count = 0, i;
-	listint_t *arr[1024];
+	listint_t *faster = NULL;
 
-	while (list)
+	if (list)
+		faster = list->next;
+	while (list && faster)
 	{
-		i = 0;
-		while (i < count)
-		{
-			if (arr[i] == list)
-				return (1);
-			i++;
-		}
-		arr[count] = list;
-		count++;
+		if (faster == list)
+			return (1);
+		if (faster->next)
+			faster = faster->next->next;
+		else
+			faster = faster->next;
 		list = list->next;
 	}
 	return (0);
