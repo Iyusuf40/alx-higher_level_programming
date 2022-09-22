@@ -9,7 +9,7 @@ def find_peak(lst):
     state = []  # records trend and waits for change
     current_peak = lst[0]
     prev = current_peak
-    for item in lst:
+    for item in lst[1:]:
         if item > prev:
             if item > current_peak:
                 current_peak = item
