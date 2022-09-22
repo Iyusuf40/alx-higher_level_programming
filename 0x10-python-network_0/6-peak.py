@@ -6,23 +6,21 @@ def find_peak(lst):
     """finds a peak in a list"""
     if not lst:
         return
-    state = []  # records trend and waits for change
+    idx = 0
     current_peak = lst[0]
     prev = current_peak
-    for item in lst[1:]:
+    while idx < len(lst):
+        item = lst[idx]
         if item > prev:
             if item > current_peak:
                 current_peak = item
-            # state.append(1)
-            if len(state) > 2:
+            if idx > 2:
                 if prev < item:
                     return current_peak
-            state.append(1)
         else:
-            # state.append(0)
-            if len(state) > 2:
+            if idx > 2:
                 if prev > item:
                     return current_peak
-            state.append(0)
         prev = item
+        idx += 1
     return current_peak
