@@ -1,3 +1,3 @@
 #!/bin/bash
-# sccript prints a sites body if status code is 200
+# sccript sends a delete request to 1st parameter
 curl -X DELETE $1
