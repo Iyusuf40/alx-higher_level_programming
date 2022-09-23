@@ -15,8 +15,12 @@ def find_peak(lst):
         if item > current_peak:
             current_peak = item
         if idx > 1:
-            if prev > item and lst[idx - 2] < prev:
-                return prev
+            # if prev > item and lst[idx - 2] < prev:
+            if prev > item:
+                if prev > current_peak:
+                    return prev
+                else:
+                    return current_peak
             # elif prev < item and lst[idx - 2] > prev:
                 # return current_peak
         prev = item
