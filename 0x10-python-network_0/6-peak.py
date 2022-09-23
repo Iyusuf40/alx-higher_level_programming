@@ -13,11 +13,13 @@ def find_peak(lst):
     prev_high = lst[high]
     current_high = prev_high
     while True:
-        if high == low:
-            return current_high
         high -= 1
         low += 1
         if lst[high] < current_high:
             return current_high
         elif lst[low] < current_low:
+            return current_low
+        current_high = lst[high]
+        current_low = lst[low]
+        if high < low:
             return current_low
