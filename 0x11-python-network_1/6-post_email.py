@@ -11,7 +11,7 @@ def make_request():
     url = sys.argv[1]
     email = sys.argv[2]
     data = {"email": email}
-    r = requests.get(url, data=data)
+    r = requests.post(url, data=data)
     print(r.text)
 
 
