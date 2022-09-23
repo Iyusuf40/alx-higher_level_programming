@@ -14,6 +14,8 @@ def find_peak(lst):
     while idx < len_:
         try:
             item = lst[idx]
+            if item > current_peak:
+                current_peak = item
             if item < prev and prev > 0:
                 return prev
         except Exception:
