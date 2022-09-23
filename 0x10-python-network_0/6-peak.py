@@ -9,20 +9,22 @@ def find_peak(lst):
     idx = 0
     current_peak = lst[0]
     prev = current_peak
-    len_ = len(lst)
+    len_ = 10
     while idx < len_:
-        item = lst[idx]
-        if item > current_peak:
-            current_peak = item
-        if idx > 1:
-            # if prev > item and lst[idx - 2] < prev:
-            if prev > item:
-                if prev > current_peak:
-                    return prev
-                else:
-                    return current_peak
-            # elif prev < item and lst[idx - 2] > prev:
-                # return current_peak
+        try:
+            item = lst[idx]
+            if item > current_peak:
+                current_peak = item
+            if idx > 1:
+                if prev > item:
+                    if prev > current_peak:
+                        return prev
+                    else:
+                        return current_peak
+        except Exception:
+            return current_peak
         prev = item
+        if (idx + 1) == len_:
+            len_ += 10
         idx += 1
     return current_peak
