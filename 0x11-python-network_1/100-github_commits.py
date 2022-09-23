@@ -27,7 +27,7 @@ commits"
         for date in dates:
             for item in js:
                 if item["commit"]["author"]["date"] == date:
-                    print(f'{item["sha"]}:', 
+                    print(f'{item["sha"]}:',
                           item["commit"]["author"]["name"])
     except Exception as e:
         print(e)
