@@ -10,7 +10,8 @@ def make_request():
     """makes http request"""
     repo = sys.argv[1]
     owner = sys.argv[2]
-    url = f"https://api.github.com/repos/{owner}/{repo}/commits"
+    url = f"https://api.github.com/repos/{owner}/{repo}/\
+commits?per_page=10"
     headers = {
             "Accept": "application/vnd.github+json",
         }
@@ -18,11 +19,12 @@ def make_request():
     try:
         js = r.json()
         count = 0
+        dates = []
+        # for item in js:
+        #     dates.append(item["commit"]["author"]["date"])
+        # dates.sort()
         for item in js:
             print(item["sha"], item["commit"]["author"]["name"])
-            count += 1
-            if count == 10:
-                break
     except Exception as e:
         print(e)
 
