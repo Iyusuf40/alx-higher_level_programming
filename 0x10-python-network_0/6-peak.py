@@ -6,22 +6,18 @@ def find_peak(lst):
     """finds a peak in a list"""
     if not lst:
         return
-    idx = 0
-    current_peak = lst[0]
-    prev = current_peak
-    len_ = 10
-    idx = 1
-    while idx < len_:
-        try:
-            item = lst[idx]
-            if item > current_peak:
-                current_peak = item
-            if item < prev and prev > 0:
-                return prev
-        except Exception:
-            return current_peak
-        prev = item
-        if (idx + 1) == len_:
-            len_ += 10
-        idx += 1
-    return current_peak
+    low = 0
+    current_low = lst[0]
+    prev_low = current_low
+    high = len(lst) - 1
+    prev_high = lst[high]
+    current_high = prev_high
+    while True:
+        if high == low:
+            return current_high
+        high -= 1
+        low += 1
+        if lst[high] < current_high:
+            return current_high
+        elif lst[low] < current_low:
+            return current_low
