@@ -10,7 +10,7 @@ def make_request():
     """makes http request"""
     url = sys.argv[1]
     r = requests.get(url)
-    print(r.headers["X-Request-Id"])
+    print(r.headers.get("X-Request-Id"))
 
 
 if __name__ == "__main__":
