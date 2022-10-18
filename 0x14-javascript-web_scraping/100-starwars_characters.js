@@ -1,44 +1,46 @@
 #!/usr/bin/node
 /* gets a movie by id and prints the names of actors in it */
 
-const request = require('request');
-const fs = require('fs');
+const util = require('util');
+const request = util.promisify(require('request'));
 
 const id = process.argv[2];
 const filmUrl = 'https://swapi-api.hbtn.io/api/films/' + id;
-const peopleUrl = 'https://swapi-api.hbtn.io/api/people';
-let people = {};
-const file = 'save.json';
+const peopleUrl = 'https://swapi-api.hbtn.io/api/people/?page=';
+const peopleId = {};
 
-request(filmUrl, (err, resp, body) => {
-  if (!err) {
-    fs.writeFile(file, body, 'utf-8', (err) => {
-      if (!err) {
-        request(peopleUrl, (error, resp, body) => {
-          if (!error) {
-            fs.readFile(file, 'utf-8', (err, data) => {
-              if (err) {
-                console.log(err);
-              }
-              const film = JSON.parse(data);
-              people = JSON.parse(body);
-              printNames(film.characters, people.results);
-            });
-          }
-        });
-      }
+async function main () {
+  const filmChars = await request(filmUrl)
+    .then(e => {
+      return (JSON.parse(e.body).characters);
+    })
+    .catch(e => {
+      console.log(e);
     });
+  let index = 1;
+  for (index = 1; index > 0; index++) {
+    const id = index.toString();
+    const url = peopleUrl + id;
+    await request(url)
+      .then(res => {
+        const results = JSON.parse(res.body).results;
+        if (!results) {
+          index = -2;
+        } else {
+          for (const item of results) {
+            peopleId[item.url] = item.name;
+          }
+        }
+      });
   }
-});
+  // console.log(filmChars);
+  // console.log(peopleId);
+  printNames(filmChars, peopleId);
+}
 
-function printNames (filmChars, peopleList) {
-  const peopleByUrl = {};
-  for (const person of peopleList) {
-    peopleByUrl[person.url] = person.name;
-  }
-  for (const character of filmChars) {
-    if (peopleByUrl[character]) {
-      console.log(peopleByUrl[character]);
-    }
+function printNames (list, obj) {
+  for (const item of list) {
+    console.log(obj[item]);
   }
 }
+main();
