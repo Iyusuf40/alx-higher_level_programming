@@ -23,7 +23,8 @@ request(url, (err, response, body) => {
 function checkFor18 (list) {
   return (
     list.filter((item) => {
-      return (item === 'https://swapi-api.hbtn.io/api/people/18/');
+      // return (item === 'https://swapi-api.hbtn.io/api/people/18/');
+      return (item.includes('/18/'));
     }
     )
   );
